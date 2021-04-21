@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    Dashboard
+{% endblock title %}
+
+{% block body %}
+
+
+    <!-- Events -->
+    <div class="dashboard container">
+        <h2>Upcoming Events</h2>
+        {% if  allEvents|length == 0 %}
+                <h3>No Events to display </h3>
+                <a href="/addEvent">Add Event</a>
+        {% endif %}
+        {% for event in allEvents %}
+        <h3 class="colored">My Events</h3>
+            <div class="dashboard-card">
+            <h3>{{event.name}}</h3>
+            <div class="btn-container">
+                <a href="/edit/{{event.name}}" class="edit-btn"><i class="fas fa-pen"></i> Edit Event</a>
+                <a href="/delete/{{event.name}}" class="delete-btn"><i class="fas fa-times"></i> Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    
+     
+       
+    </div>
+
+{% endblock body %}

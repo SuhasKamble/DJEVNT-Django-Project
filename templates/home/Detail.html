@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Details - {{event.name}}{% endblock title %}
+{% block body %}
+    <!-- Events -->
+    <div class="details container">
+        <h2>{{event.name}}</h2>
+        <img src="{{event.image}}" alt="">
+        <h2>Performers</h2>
+        <p>{{event.performers}}</p>
+        <h2>Description</h2>
+        <p>{{event.desc}}</p>
+        <h2>Venue</h2>
+        <p>{{event.venue}}</p>
+    </div>
+{% endblock body %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+    All Events
+{% endblock title %}
+
+{% block body %}
+        <!-- Events -->
+    <div class="events container">
+        <h2>All Events: </h2>
+        {% if allEvents|length == 0 %}
+            <h3>No Current Events </h3>
+        {% endif %}
+        <div class="events-container">
+        {% for event in  allEvents %}
+       
+            <div class="event">
+                <div class="event-img">
+                    <img src="{{event.image}}" alt="Event Image">
+                </div>
+                <div class="event-info">
+                    <p>{{event.date}} at {{event.time}}</p>
+                    <h3>{{event.name}}</h3>
+                </div>
+                <a href="/details/{{event.name}}" class="detail-btn">Details</a>
+            </div>
+    
+    {% endfor %}
+        
+        </div>
+    </div>
+{% endblock body %}
+

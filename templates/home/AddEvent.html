@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+    Add Event
+{% endblock title %}
+
+{% block body %}
+
+  <!-- Events -->
+    <div class="addEvent container">
+        <form action="/addEvent" method="POST" class="form-container">
+            {% csrf_token %}
+            <h2>Edit Event</h2>
+            <div class="form-control">
+                <div class="form-div">
+                    <label for="ename">Event Name</label>
+                    <input type="text" value="{{event.name}}" name="name" required>
+                </div>
+                <div class="form-div">
+                    <label for="performer">Performers</label>
+                    <input type="text" value="{{event.performers}}"   name="performers" required>
+                </div>
+            </div>
+            <div class="form-control">
+                <div class="form-div">
+                    <label for="venue">Venue</label>
+                    <input type="text" value="{{event.venue}}"   name="venue" required>
+                </div>
+                <div class="form-div">
+                    <label for="address">Address</label>
+                    <input type="text" value="{{event.address}}"  name="address" required>
+                </div>
+            </div>
+            <div class="form-control">
+                <div class="form-div">
+                    <label for="date">Date</label>
+                    <input type="date" value="{{event.date}}"  name="date" required>
+                </div>
+                <div class="form-div">
+                    <label for="time">Time</label>
+                    <input type="time" value="{{event.time}}"  name="time" required>
+                </div>
+            </div>
+            <div class="form-control">
+                <div class="form-div">
+                    <label for="desc">Image Url</label>
+                    <input type="text" value="{{event.image}}" name="image" required>
+                </div>
+            </div>
+            <div class="form-control">
+                <div class="form-div">
+                    <label for="desc">Event Description</label>
+                    <textarea name="desc" required>{{event.desc}}</textarea>
+                </div>
+            </div>
+            <div class="form-control">
+                <div class="form-div">
+                    <button class="submit-btn">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>{% endblock body %}

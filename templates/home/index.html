@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block body %}
+    <!-- Banner -->
+    <div class="banner">
+        <h1>Welcome To The Party</h1>
+        <h3>Find the hottest DJ event</h3>
+    </div>
+    
+    <!-- Events -->
+    <div class="events container">
+        <h2>Upcoming Events</h2>
+        <div class="events-container">
+        {% for event in  allEvents %}
+       
+            <div class="event">
+                <div class="event-img">
+                    <img src="{{event.image}}" alt="Event Image">
+                </div>
+                <div class="event-info">
+                    <p>{{event.date}} at {{event.time}}</p>
+                    <h3>{{event.name}}</h3>
+                </div>
+                <a href="/details/{{event.name}}" class="detail-btn">Details</a>
+            </div>
+    
+    {% endfor %}
+        
+        </div>
+    </div>
+{% endblock body %}
